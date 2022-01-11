@@ -19,6 +19,12 @@ public class RomanNumeral {
     }
 
     public int convert(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if(!map.containsKey(s.charAt(i)))
+                return 0;
+        }
+
+        s = s.toUpperCase();
 
         int convertedNumber = 0;
         for (int i = 0; i < s.length(); i++) {
