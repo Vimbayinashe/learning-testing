@@ -15,4 +15,18 @@ class RomanNumeralTest {
         assertEquals(0, num, "Invalid roman numeral returns 0");
     }
 
+    @Test
+    void convertXIShouldReturnEleven() {
+        int num = romanNumeral.convert("XI");
+
+        assertEquals(11, num, "XI should retun 11");
+    }
+
+    @Test
+    void convertIVShouldReturnFour() {
+        int num = romanNumeral.convert("IV");
+
+        assertEquals(4, num, "IV should return 4");
+    }
+
 }
