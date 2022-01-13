@@ -19,13 +19,6 @@ public class RomanNumeral {
     }
 
     public int convert(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            if(!map.containsKey(s.charAt(i)))
-                return 0;
-        }
-
-        s = s.toUpperCase();
-
         int convertedNumber = 0;
         for (int i = 0; i < s.length(); i++) {
             int currentNumber = map.get(s.charAt(i));
@@ -36,4 +29,15 @@ public class RomanNumeral {
         }
         return convertedNumber;
     }
+
+    //it may be desirable NOT to change the behaviour of an existing method because other users are expecting it to
+    // throw a NullPointerException. Changing convert() to become case-insensitive would unexpectedly change that
+    // behaviour, so I am removing the below "guards" I had added.
+
+    //    for (int i = 0; i < s.length(); i++) {
+    //        if(!map.containsKey(s.charAt(i)))
+    //            return 0;
+    //    }
+    //
+    //    s = s.toUpperCase();
 }
