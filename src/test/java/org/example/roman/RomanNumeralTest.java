@@ -30,4 +30,21 @@ class RomanNumeralTest {
         assertThrows(NullPointerException.class, () -> romanNumeral.convert("x"));
     }
 
+    @DisplayName("Single character roman number ")
+    @ParameterizedTest(name = "{0} is {1}")
+    @CsvSource({
+            "I, 1",
+            "V, 5",
+            "X, 10",
+            "L, 50",
+            "C, 100",
+            "D, 500",
+            "M, 1000"
+    })
+    void valueOfRomanNumeral(String value, int expected) {
+        int result = romanNumeral.convert(value);
+
+        assertEquals(expected, result, "Roman numeral " + value + " is " + expected);
+    }
+
 }
