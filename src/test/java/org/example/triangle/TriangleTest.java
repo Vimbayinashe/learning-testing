@@ -49,7 +49,7 @@ class TriangleTest {
 
         boolean isScalene = triangle.isScalene();
 
-        assertTrue(isScalene, "A triangle with 3 unequal is a scalene triangle.");
+        assertTrue(isScalene, "A triangle with 3 unequal sides is a scalene triangle.");
     }
 
     @Test
@@ -59,7 +59,13 @@ class TriangleTest {
 
         boolean isEquilateral = triangle.isEquilateral();
 
-        assertFalse(isEquilateral, "A triangle with 3 unequal is NOT an equilateral triangle.");
+        assertFalse(isEquilateral, "A triangle with 3 unequal sides is NOT an equilateral triangle.");
     }
+
+    //Naming suggestions
+    //withThreeEqualSidesShouldNotBeAnIsosceles BEST (because dropped "triangle" in method name)
+    //givenTriangleWithUnequalSidesThenShouldBeEquilateral
+    //scaleneShouldReturnTrue
+    //triangleWit2SidesOfEqualLengthShouldBeIsosceles
 
 }
