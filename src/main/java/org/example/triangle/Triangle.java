@@ -25,8 +25,8 @@ public class Triangle {
     public Triangle(Point[] s) {
         sides = new double[s.length];
         sides[0] = Math.sqrt(Math.pow((double) (s[1].x - s[0].x), 2.0) + Math.pow((double) (s[1].y - s[0].y), 2.0));
-        sides[1] = Math.sqrt(Math.pow((double) (s[1].x - s[2].x), 2.0) + Math.pow((double) (s[1].x - s[2].x), 2.0));
-        sides[2] = Math.sqrt(Math.pow((double) (s[2].x - s[0].x), 2.0) + Math.pow((double) (s[2].x - s[0].x), 2.0));
+        sides[1] = Math.sqrt(Math.pow((double) (s[1].x - s[2].x), 2.0) + Math.pow((double) (s[1].y - s[2].y), 2.0));
+        sides[2] = Math.sqrt(Math.pow((double) (s[2].x - s[0].x), 2.0) + Math.pow((double) (s[2].y - s[0].y), 2.0));
     }
 
     private int uniqueSides() {
