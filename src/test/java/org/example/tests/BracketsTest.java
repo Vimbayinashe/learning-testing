@@ -47,12 +47,21 @@ public class BracketsTest {
     }
 
     @Test
-    void squareBracketsInRegularBrackets() {
+    void twoBracketTypesShouldBeValid() {    //squareBracketsInRegularBrackets
         Brackets brackets = new Brackets();
 
         boolean result = brackets.isValid("([])");
 
         assertTrue(result);
+    }
+
+    @Test
+    void incorrectOpenAndCloseBracketsShouldFail() {
+        Brackets brackets = new Brackets();
+
+        boolean result = brackets.isValid("([))");
+
+        assertFalse(result);
     }
 }
 
