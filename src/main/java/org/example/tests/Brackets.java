@@ -1,33 +1,30 @@
 package org.example.tests;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Brackets {
     public boolean isValid(String s) {
-        if (s.length() % 2 == 1)
-            return false;
 
-        if (misMatchingBrackets(s))
-            return false;
+        Deque<Character> stack = new LinkedList<>();
 
-        return true;
+        for (char c : s.toCharArray()) {
+            if (isOpeningBracket(c)) {
+                stack.push(c);
+            } else if (stack.isEmpty() || isNotMatchingBrackets(c, stack.pop()))
+                return false;
+        }
+
+        return stack.isEmpty();
     }
 
-    private boolean misMatchingBrackets(String s) {
-        int countRound = 0;
-        int countSquare = 0;
+    private boolean isNotMatchingBrackets(char closingBracket, char openingBracket) {
+        if (closingBracket == ')' && openingBracket == '(')
+            return false;
+        return closingBracket != ']' || openingBracket != '[';
+    }
 
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(')
-                countRound++;
-            if (s.charAt(i) == ')')
-                countRound--;
-            if (s.charAt(i) == '[')
-                countSquare++;
-            if (s.charAt(i) == ']')
-                countSquare--;
-
-            if (countRound < 0 || countSquare < 0)
-                return true;
-        }
-        return !(countRound == 0 && countSquare == 0);
+    private boolean isOpeningBracket(char c) {
+        return c == '(' || c == '[';
     }
 }
