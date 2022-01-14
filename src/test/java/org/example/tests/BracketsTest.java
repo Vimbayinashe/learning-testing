@@ -29,10 +29,19 @@ public class BracketsTest {
     }
 
     @Test
-    void startingWithClosingBracketFirst() {
+    void startingWithClosingBracket() {
         Brackets brackets = new Brackets();
 
         boolean result = brackets.isValid(")(");
+
+        assertFalse(result);
+    }
+
+    @Test
+    void endWithOpeningBracket() {
+        Brackets brackets = new Brackets();
+
+        boolean result = brackets.isValid("())(");
 
         assertFalse(result);
     }
