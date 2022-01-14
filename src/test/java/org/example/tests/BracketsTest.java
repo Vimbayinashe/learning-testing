@@ -45,6 +45,15 @@ public class BracketsTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void squareBracketsInRegularBrackets() {
+        Brackets brackets = new Brackets();
+
+        boolean result = brackets.isValid("([])");
+
+        assertTrue(result);
+    }
 }
 
 // begin with the simpler / unusual scenarios
