@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BracketsTest {
 
+    Brackets brackets = new Brackets();
+
     @Test
     void  emptyStringShouldBeValid() {
 
@@ -25,9 +27,19 @@ public class BracketsTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void startingWithClosingBracketFirst() {
+        Brackets brackets = new Brackets();
+
+        boolean result = brackets.isValid(")(");
+
+        assertFalse(result);
+    }
 }
 
 // begin with the simpler / unusual scenarios
+// commit after each individual test
 
 /*
  * brakets does not exist att first & causes an error -> create Brackets class (use Alt+Enter)
@@ -57,7 +69,8 @@ public class BracketsTest {
     ([])
 
    Invalid Scenarios:
-    )( - wrong direction
+    )( - wrong direction index 0
+    ())( - wrong direction last index
     (() - odd number of brackets
     ([)] - brackets not in order
 
