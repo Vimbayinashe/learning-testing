@@ -9,6 +9,8 @@ public class BracketsTest {
 
     Brackets brackets = new Brackets();
 
+    //todo: refactor to parameterized tests
+
     @Test
     void  emptyStringShouldBeValid() {
 
@@ -80,6 +82,20 @@ public class BracketsTest {
         boolean result = brackets.isValid("([)]");
 
         assertFalse(result);
+    }
+
+    @Test
+    void complicatedBracketsShouldBeValid() {
+        boolean result = brackets.isValid("([{}([])])");
+
+        assertTrue(result);
+    }
+
+    @Test
+    void simpleBracketsShouldBeValid() {
+        boolean result = brackets.isValid("()");
+
+        assertTrue(result);
     }
 }
 
