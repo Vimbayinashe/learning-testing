@@ -24,4 +24,20 @@ class InvoiceFilterTest {
 
     }
 
+    @Test
+    void keepInvoicesWithValueGreaterThan100() {
+        //ibland behöver man skapa en till stub för att lägga till nya värden
+
+        InvoiceDao invoiceDao = mock(InvoiceDao.class);
+        Mockito.when(invoiceDao.all()).thenReturn(List.of(
+                new Invoice("Ica", 100.00),
+                new Invoice("Bilia", 101.0)
+        ));
+        InvoiceFilter filter = new InvoiceFilter(invoiceDao);
+
+        var result = filter.filterInvoicesGreaterThan100();
+
+        assertThat(result).hasSize(1).contains(new Invoice("Bilia", 101.0));
+    }
+
 }
