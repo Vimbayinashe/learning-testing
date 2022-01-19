@@ -8,6 +8,10 @@ public class InvoiceH2Dao implements InvoiceDao {
 
     private static Connection c;
 
+    public InvoiceH2Dao(Connection connection) {
+        c = connection;
+    }
+
     public InvoiceH2Dao() {
         try {
             if (c != null) return;

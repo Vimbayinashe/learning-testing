@@ -26,7 +26,7 @@ class TestabilityTest {
         testability.run();
 
         Mockito.verify(logger).log(LogLevel.WARNING,"Some warning - program is starting up or whatever");
-        Mockito.verify(logger).log(eq(LogLevel.ERROR), startsWith("An error occured:"));
+        Mockito.verify(logger).log(eq(LogLevel.ERROR), startsWith("An error occurred:"));
     }
 
     @Test

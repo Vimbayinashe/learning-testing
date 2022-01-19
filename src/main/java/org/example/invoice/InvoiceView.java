@@ -1,5 +1,8 @@
 package org.example.invoice;
 
+import java.util.List;
+import java.util.function.Consumer;
+
 public class InvoiceView {
 
     public static void main(String[] args) {
@@ -7,6 +10,7 @@ public class InvoiceView {
         invoiceView.printInvoices();
     }
 
+    //refactoring to make method more testable & make printInvoices() do less things (i.e. refactor)
     public void printInvoices() {
         InvoiceDao invoiceDao = new InvoiceH2Dao();
         invoiceDao.save(new Invoice("Pelles gott", 99.0));
@@ -14,8 +18,14 @@ public class InvoiceView {
         invoiceDao.save(new Invoice("Enegårdens kött", 101.0));
 
         InvoiceFilter filter = new InvoiceFilter(invoiceDao);
-        filter.filter().forEach(this::printInvoice);
+
+        printInvoices(filter.filter(), this::printInvoice);
     }
+
+    private void printInvoices(List<Invoice> invoices, Consumer<Invoice> printConsumer) {
+        invoices.forEach(printConsumer);
+    }
+    //Consumer allows us to replace sout with another method during testing
 
     private void printInvoice(Invoice invoice) {
         System.out.println("Customer: " + invoice.getCustomer());
