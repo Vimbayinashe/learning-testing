@@ -26,9 +26,9 @@ public class Testability {
         }
     }
 
-    public boolean isValidEmail(String s) {
-
+    public boolean isAdressValid(String s) {
         return s.contains("@");
     }
+
 }
 
