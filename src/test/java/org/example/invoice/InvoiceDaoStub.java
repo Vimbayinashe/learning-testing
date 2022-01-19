@@ -7,7 +7,7 @@ public class InvoiceDaoStub implements InvoiceDao {
     public List<Invoice> all() {
         return List.of(
                 new Invoice("Martin", 99.0),
-                new Invoice("Elias", 100.00)  //good to test boundary values -> säkerställa
+                new Invoice("Elias", 100.00)
         );
     }
 
