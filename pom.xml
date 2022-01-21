@@ -7,6 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>Test21</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -51,6 +52,7 @@
                 <version>3.8.1</version>
             </plugin>
             <plugin>
+                <!--       tests         -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
